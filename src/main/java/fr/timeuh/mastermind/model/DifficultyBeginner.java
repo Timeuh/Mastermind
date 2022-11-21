@@ -15,7 +15,7 @@ public class DifficultyBeginner implements Difficulty{
     }
 
     /**
-     * Correct the player answer, placing correction circles in the order of the player's answer
+     * Correct the player's answer, placing correction circles in the order of the player's answer
      * @param answer the model answer
      * @param playerAnswer the player's current answer
      * @return a row with correction circles
