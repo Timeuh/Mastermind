@@ -14,4 +14,11 @@ public class Circle {
     public Circle(String color) {
         this.color = color;
     }
+
+    /**
+     * @return the circle's color
+     */
+    public String getColor() {
+        return color;
+    }
 }

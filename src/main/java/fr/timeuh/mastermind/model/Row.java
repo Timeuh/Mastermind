@@ -36,4 +36,11 @@ public class Row {
     private void fillRow() {
         for (int i = 0; i < 5; i ++) circles.add(new Circle("Grey"));
     }
+
+    /**
+     * @return the circle list
+     */
+    public List<Circle> getCircles() {
+        return circles;
+    }
 }
