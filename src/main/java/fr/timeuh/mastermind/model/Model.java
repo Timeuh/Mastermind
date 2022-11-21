@@ -67,7 +67,7 @@ public class Model implements Subject{
             case 2 -> {return "Blue";}
             case 3 -> {return "Yellow";}
             case 4 -> {return "Brown";}
-            default -> {return "Gray";}
+            default -> {return "Grey";}
         }
     }
 
