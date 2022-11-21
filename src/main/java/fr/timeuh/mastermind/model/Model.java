@@ -15,6 +15,7 @@ public class Model implements Subject{
     private List<Row> rows;
     private Row answer;
     private int currentRow;
+    private Difficulty difficulty;
 
     /**
      * Constructs a new model
@@ -23,7 +24,12 @@ public class Model implements Subject{
         this.observers = new ArrayList<>();
         this.rows = new ArrayList<>();
         this.currentRow = 0;
+        this.difficulty = new DifficultyBeginner();
         fillRows();
+    }
+
+    private Row checkAnswer(){
+        return difficulty.correctPlayerAnswer(answer, rows.get(currentRow));
     }
 
     /**
