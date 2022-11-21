@@ -8,9 +8,13 @@ import java.util.List;
 public class Model implements Subject{
 
     private List<Observer> observers;
+    private List<Row> rows;
+    private int currentRow;
 
     public Model() {
         this.observers = new ArrayList<>();
+        this.rows = new ArrayList<>();
+        this.currentRow = 0;
     }
 
     @Override
