@@ -28,6 +28,10 @@ public class Model implements Subject{
         fillRows();
     }
 
+    /**
+     * Check player's current answer with the difficulty check
+     * @return a correction row
+     */
     private Row checkAnswer(){
         return difficulty.correctPlayerAnswer(answer, rows.get(currentRow));
     }
