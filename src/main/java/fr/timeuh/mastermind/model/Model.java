@@ -131,4 +131,11 @@ public class Model implements Subject{
     public int getCurrentPon() {
         return currentPon;
     }
+
+    /**
+     * @return the answer row list
+     */
+    public List<Row> getAnswerRows() {
+        return answerRows;
+    }
 }

@@ -34,7 +34,7 @@ public class Row {
      * Fill the row with 5 grey circles
      */
     private void fillRow() {
-        for (int i = 0; i < 5; i ++) circles.add(new Circle("Grey"));
+        for (int i = 0; i < 5; i ++) circles.add(new Circle("SILVER"));
     }
 
     /**

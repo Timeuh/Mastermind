@@ -1,5 +1,7 @@
 package fr.timeuh.mastermind.model;
 
+import javafx.scene.paint.Color;
+
 /**
  * Circle representing a pon of mastermind game
  */
@@ -13,6 +15,20 @@ public class Circle {
      */
     public Circle(String color) {
         this.color = color;
+    }
+
+    public Color getColorFromString(){
+        switch (color){
+            case "CRIMSON" -> {return Color.CRIMSON;}
+            case "GREEN" -> {return Color.GREEN;}
+            case "NAVY" -> {return Color.NAVY;}
+            case "GOLD" -> {return Color.GOLD;}
+            case "SADDLEBROWN" -> {return Color.SADDLEBROWN;}
+            case "BLACK" -> {return Color.BLACK;}
+            case "WHITE" -> {return Color.WHITE;}
+            case "GREY" -> {return Color.GREY;}
+            default -> {return Color.SILVER;}
+        }
     }
 
     /**
