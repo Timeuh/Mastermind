@@ -56,11 +56,22 @@ public class PonSelectionView extends GridPane implements Observer{
         if (subject instanceof Model model){
             getChildren().clear();
 
-            for (int y = 0; y < 5; y++){
-                Circle grey = new Circle(CIRCLE_RADIUS, Color.BLACK);
-                grey.setStroke(Color.GREY);
-                add(grey, y, 0);
+            if (model.getPhase().equals("OVER")){
+                int col = 0;
+                for (fr.timeuh.mastermind.model.Circle modelCircle : model.getAnswer().getCircles()){
+                    Circle grey = new Circle(CIRCLE_RADIUS, modelCircle.getColorFromString());
+                    grey.setStroke(Color.GREY);
+                    add(grey, col, 0);
+                    col ++;
+                }
+            } else {
+                for (int y = 0; y < 5; y++){
+                    Circle black = new Circle(CIRCLE_RADIUS, Color.BLACK);
+                    black.setStroke(Color.GREY);
+                    add(black, y, 0);
+                }
             }
+
 
             for (int i = 1; i < 8; i++){
                 for (int x = 0; x < 5; x++){

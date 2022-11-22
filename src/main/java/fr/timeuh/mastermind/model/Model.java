@@ -20,6 +20,7 @@ public class Model implements Subject{
     private Color background;
     private int currentRow;
     private int currentPon;
+    private String phase;
 
     /**
      * Constructs a new model
@@ -32,6 +33,8 @@ public class Model implements Subject{
         this.background = Color.WHITE;
         this.currentRow = 6;
         this.currentPon = 0;
+        this.answer = generateAnswer();
+        this.phase = "WAITING";
         fillRows();
     }
 
@@ -137,5 +140,19 @@ public class Model implements Subject{
      */
     public List<Row> getAnswerRows() {
         return answerRows;
+    }
+
+    /**
+     * @return the current game phase
+     */
+    public String getPhase() {
+        return phase;
+    }
+
+    /**
+     * @return the answer row
+     */
+    public Row getAnswer() {
+        return answer;
     }
 }
