@@ -1,6 +1,9 @@
 package fr.timeuh.mastermind.view;
 
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 
 /**
  * Global view of the application
@@ -22,6 +25,7 @@ public class GlobalView extends BorderPane {
         setTop(top);
         setBottom(colorSelection);
         setCenter(menu);
+        setBackground(new Background(new BackgroundFill(Color.GREY, null, null)));
     }
 
     /**

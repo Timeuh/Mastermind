@@ -6,6 +6,8 @@ import javafx.scene.layout.GridPane;
  * View for seeing if the player's answer is correct or not
  */
 public class AnswerView extends GridPane {
+    private final int GRID_WIDTH = 100;
+    private final int GRID_HEIGHT = 300;
 
     /**
      * Constructs a new answer view
@@ -18,6 +20,6 @@ public class AnswerView extends GridPane {
      * Initialize the view
      */
     private void init(){
-        setMinSize(200,300);
+        setMinSize(GRID_WIDTH,GRID_HEIGHT);
     }
 }
