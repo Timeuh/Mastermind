@@ -114,6 +114,15 @@ public class Model implements Subject{
     }
 
     /**
+     * Get the current difficulty of the game
+     * @return a string representing the difficulty
+     */
+    public String currentDifficulty(){
+        if (difficulty instanceof DifficultyPro) return "Pro";
+        else return "Beginner";
+    }
+
+    /**
      * Reset the game, except the observers
      */
     public void reset(){

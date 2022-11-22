@@ -4,9 +4,11 @@ import fr.timeuh.mastermind.model.Model;
 import fr.timeuh.mastermind.model.Row;
 import fr.timeuh.mastermind.model.Subject;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 
 /**
  * Pon selection view for the player
@@ -16,6 +18,7 @@ public class PonSelectionView extends GridPane implements Observer{
     private final int GRID_HGAP = 5;
     private final int CIRCLE_RADIUS = 20;
     private final int MINI_CIRCLE_RADIUS = 10;
+    private final int FONT_SIZE = 20;
 
     /**
      * Constructs a new pon selection view
@@ -42,6 +45,10 @@ public class PonSelectionView extends GridPane implements Observer{
                 add(grey, x, i);
             }
         }
+
+        Label difficulty = new Label("Difficulty : Beginner");
+        difficulty.setFont(new Font(FONT_SIZE));
+        add(difficulty, 8,0);
 
         setHgap(GRID_HGAP);
         setVgap(GRID_SPACING);
@@ -95,6 +102,10 @@ public class PonSelectionView extends GridPane implements Observer{
                 }
                 lig --;
             }
+
+            Label difficulty = new Label("Difficulty : " + model.currentDifficulty());
+            difficulty.setFont(new Font(FONT_SIZE));
+            add(difficulty, 8,0);
         }
     }
 }
