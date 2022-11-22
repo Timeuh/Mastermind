@@ -8,14 +8,25 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 
+/**
+ * Control the menu buttons
+ */
 public class ControlMenu implements EventHandler<ActionEvent> {
 
     private Model model;
 
+    /**
+     * Constructs a new menu controller
+     * @param model the model of the game
+     */
     public ControlMenu(Model model) {
         this.model = model;
     }
 
+    /**
+     *
+     * @param event the event which occurred
+     */
     @Override
     public void handle(ActionEvent event) {
         if (event.getTarget() instanceof Button button){
