@@ -65,7 +65,10 @@ public class GlobalView extends BorderPane implements Observer{
     @Override
     public void update(Subject subject) {
         if (subject instanceof Model model){
-            if (model.getBackground() != current) changeLighting();
+            if (model.getBackground() != current){
+                changeLighting();
+                current = model.getBackground();
+            }
         }
     }
 }

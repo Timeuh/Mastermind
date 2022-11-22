@@ -31,7 +31,7 @@ public class Model implements Subject{
         this.answerRows = new ArrayList<>();
         this.difficulty = new DifficultyBeginner();
         this.background = Color.WHITE;
-        this.currentRow = 6;
+        this.currentRow = 7;
         this.currentPon = 0;
         this.answer = generateAnswer();
         this.phase = "WAITING";
@@ -39,11 +39,10 @@ public class Model implements Subject{
     }
 
     /**
-     * Check player's current answer with the difficulty check
-     * @return a correction row
+     * Check player's current answer with the difficulty check and add the row to the correction
      */
-    private Row checkAnswer(){
-        return difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow));
+    public void checkAnswer(){
+        answerRows.add(difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow)));
     }
 
     /**
@@ -112,6 +111,42 @@ public class Model implements Subject{
     @Override
     public void notifyObservers() {
         for (Observer obs : observers) obs.update(this);
+    }
+
+    /**
+     * Reset the game, except the observers
+     */
+    public void reset(){
+        this.playerRows = new ArrayList<>();
+        this.answerRows = new ArrayList<>();
+        this.difficulty = new DifficultyBeginner();
+        this.background = Color.WHITE;
+        this.currentRow = 7;
+        this.currentPon = 0;
+        this.answer = generateAnswer();
+        this.phase = "WAITING";
+        fillRows();
+    }
+
+    public void switchBackground(){
+        if (background.equals(Color.WHITE)) background = Color.GREY;
+        else if (background.equals(Color.GREY)) background = Color.WHITE;
+    }
+
+    /**
+     * Change game difficulty
+     * @param difficulty the new difficulty
+     */
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    /**
+     * Change the game phase
+     * @param phase the new game phase
+     */
+    public void setPhase(String phase) {
+        this.phase = phase;
     }
 
     /**
