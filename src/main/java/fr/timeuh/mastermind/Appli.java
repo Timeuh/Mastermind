@@ -14,7 +14,6 @@ public class Appli extends Application {
 
         model.addObserver(global);
         model.addObserver(global.getTopView().getPons());
-        model.addObserver(global.getTopView().getAnswers());
 
         Scene scene = new Scene(global);
         stage.setTitle("Mastermind");

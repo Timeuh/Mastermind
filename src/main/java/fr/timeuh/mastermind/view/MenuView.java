@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
  * Game menu view
  */
 public class MenuView extends HBox {
-    private final int BUTTON_WIDTH = 100;
+    private final int BUTTON_WIDTH = 70;
     private final int BOX_SPACING = 10;
 
     /**
