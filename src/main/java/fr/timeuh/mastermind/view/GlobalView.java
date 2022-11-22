@@ -33,8 +33,14 @@ public class GlobalView extends BorderPane implements Observer{
     }
 
     private void changeLighting(){
-        if (current == Color.GREY) setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
-        else if (current == Color.WHITE) setBackground(new Background(new BackgroundFill(Color.GREY, null, null)));
+        if (current == Color.GREY){
+            setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+            current = Color.WHITE;
+        }
+        else if (current == Color.WHITE){
+            setBackground(new Background(new BackgroundFill(Color.GREY, null, null)));
+            current = Color.GREY;
+        }
     }
 
     /**
