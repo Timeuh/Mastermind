@@ -25,6 +25,7 @@ public class MenuView extends HBox {
      * Initialize the view with the components
      */
     private void init(){
+        //create and change color of buttons
         Button start = new Button("Start");
         start.setTextFill(Color.CRIMSON);
 
@@ -43,8 +44,10 @@ public class MenuView extends HBox {
         Button dayNight = new Button("Day/Nigth mode");
         dayNight.setTextFill(Color.BLACK);
 
+        //add buttons to children
         getChildren().addAll(start, reset, beginner, pro, validate, dayNight);
 
+        //for each button, change the font to bold, change the background color and put a black border around
         for (Node node : getChildren()){
             if (node instanceof Button button){
                 button.setMinWidth(BUTTON_WIDTH);
@@ -54,6 +57,7 @@ public class MenuView extends HBox {
             }
         }
 
+        //put some spacing between buttons and padding for the container, put elements in center
         setSpacing(BOX_SPACING);
         setPadding(new Insets(BOX_SPACING));
         setAlignment(Pos.CENTER);
