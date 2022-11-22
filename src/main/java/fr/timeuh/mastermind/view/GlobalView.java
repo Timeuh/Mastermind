@@ -14,7 +14,7 @@ public class GlobalView extends BorderPane implements Observer{
 
     private ColorSelectionView colorSelection;
     private MenuView menu;
-    private TopView top;
+    private PonSelectionView top;
     private Color current;
 
     /**
@@ -23,7 +23,7 @@ public class GlobalView extends BorderPane implements Observer{
     public GlobalView() {
         this.colorSelection = new ColorSelectionView();
         this.menu = new MenuView();
-        this.top = new TopView();
+        this.top = new PonSelectionView();
         this.current = Color.GREY;
 
         setTop(top);
@@ -60,7 +60,7 @@ public class GlobalView extends BorderPane implements Observer{
     /**
      * @return the top view
      */
-    public TopView getTopView() {
+    public PonSelectionView getPons() {
         return top;
     }
 
