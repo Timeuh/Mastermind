@@ -1,5 +1,7 @@
 package fr.timeuh.mastermind.view;
 
+import fr.timeuh.mastermind.model.Model;
+import fr.timeuh.mastermind.model.Subject;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -8,7 +10,7 @@ import javafx.scene.paint.Color;
 /**
  * Global view of the application
  */
-public class GlobalView extends BorderPane {
+public class GlobalView extends BorderPane implements Observer{
 
     private ColorSelectionView colorSelection;
     private MenuView menu;
@@ -54,5 +56,12 @@ public class GlobalView extends BorderPane {
      */
     public TopView getTopView() {
         return top;
+    }
+
+    @Override
+    public void update(Subject subject) {
+        if (subject instanceof Model model){
+            if (model.getBackground() != current) changeLighting();
+        }
     }
 }

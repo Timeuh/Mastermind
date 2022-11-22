@@ -1,6 +1,7 @@
 package fr.timeuh.mastermind.model;
 
 import fr.timeuh.mastermind.view.Observer;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Model implements Subject{
     private Row answer;
     private int currentRow;
     private Difficulty difficulty;
+    private Color background;
 
     /**
      * Constructs a new model
@@ -25,6 +27,7 @@ public class Model implements Subject{
         this.rows = new ArrayList<>();
         this.currentRow = 0;
         this.difficulty = new DifficultyBeginner();
+        this.background = Color.WHITE;
         fillRows();
     }
 
@@ -102,5 +105,12 @@ public class Model implements Subject{
     @Override
     public void notifyObservers() {
         for (Observer obs : observers) obs.update(this);
+    }
+
+    /**
+     * @return the current background color
+     */
+    public Color getBackground() {
+        return background;
     }
 }
