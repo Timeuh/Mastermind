@@ -13,6 +13,7 @@ public class GlobalView extends BorderPane {
     private ColorSelectionView colorSelection;
     private MenuView menu;
     private TopView top;
+    private Color current;
 
     /**
      * Constructs a new global view
@@ -21,11 +22,17 @@ public class GlobalView extends BorderPane {
         this.colorSelection = new ColorSelectionView();
         this.menu = new MenuView();
         this.top = new TopView();
+        this.current = Color.GREY;
 
         setTop(top);
         setBottom(colorSelection);
         setCenter(menu);
-        setBackground(new Background(new BackgroundFill(Color.GREY, null, null)));
+        changeLighting();
+    }
+
+    private void changeLighting(){
+        if (current == Color.GREY) setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+        else if (current == Color.WHITE) setBackground(new Background(new BackgroundFill(Color.GREY, null, null)));
     }
 
     /**
