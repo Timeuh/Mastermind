@@ -43,6 +43,8 @@ public class Model implements Subject{
      */
     public void checkAnswer(){
         answerRows.add(difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow)));
+        currentRow --;
+        currentPon = 0;
     }
 
     /**
@@ -184,6 +186,13 @@ public class Model implements Subject{
      */
     public List<Row> getAnswerRows() {
         return answerRows;
+    }
+
+    /**
+     * @return the list of player's rows
+     */
+    public List<Row> getPlayerRows() {
+        return playerRows;
     }
 
     /**

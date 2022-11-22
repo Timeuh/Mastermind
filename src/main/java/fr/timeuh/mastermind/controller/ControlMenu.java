@@ -1,5 +1,6 @@
 package fr.timeuh.mastermind.controller;
 
+import fr.timeuh.mastermind.model.Circle;
 import fr.timeuh.mastermind.model.DifficultyBeginner;
 import fr.timeuh.mastermind.model.DifficultyPro;
 import fr.timeuh.mastermind.model.Model;
@@ -24,7 +25,13 @@ public class ControlMenu implements EventHandler<ActionEvent> {
                 case "Beginner" -> model.setDifficulty(new DifficultyBeginner());
                 case "Pro" -> model.setDifficulty(new DifficultyPro());
                 case "Validate" -> {
-                    if (model.getCurrentPon() == 4) model.checkAnswer();
+                    if (model.getPhase().equals("PLAYING")){
+                        boolean presence = false;
+                        for (Circle modelCircle : model.getPlayerRows().get(model.getCurrentRow()).getCircles()){
+                            if (modelCircle.getColor().equals("SILVER")) presence = true;
+                        }
+                        if (!presence) model.checkAnswer();
+                    }
                 }
                 case "Day/Nigth mode" -> model.switchBackground();
             }
