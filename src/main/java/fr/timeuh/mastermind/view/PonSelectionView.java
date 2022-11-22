@@ -37,7 +37,8 @@ public class PonSelectionView extends GridPane implements Observer{
         for (int i = 1; i < 8; i++){
             for (int x = 0; x < 5; x++){
                 Circle grey = new Circle(CIRCLE_RADIUS, Color.SILVER);
-                grey.setStroke(Color.BLACK);
+                if ((i == 7) && (x == 0)) grey.setStroke(Color.BLANCHEDALMOND);
+                else grey.setStroke(Color.BLACK);
                 add(grey, x, i);
             }
         }
