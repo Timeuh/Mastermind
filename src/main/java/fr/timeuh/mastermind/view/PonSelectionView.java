@@ -45,6 +45,10 @@ public class PonSelectionView extends GridPane implements Observer{
         setPadding(new Insets(GRID_SPACING));
     }
 
+    /**
+     * Update the view with the model data
+     * @param subject the subject they are watching
+     */
     @Override
     public void update(Subject subject) {
         if (subject instanceof Model model){
