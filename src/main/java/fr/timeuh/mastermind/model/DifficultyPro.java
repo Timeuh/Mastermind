@@ -26,7 +26,7 @@ public class DifficultyPro implements Difficulty{
         int correctCount = 0;
         int goodColorCount = 0;
         //initialize full white
-        for (int y = 0; y < 5; y++) colors.add("White");
+        for (int y = 0; y < 5; y++) colors.add("WHITE");
 
         //count corrects and well-placed pon
         for (int i = 0; i < 5; i++){
@@ -37,7 +37,7 @@ public class DifficultyPro implements Difficulty{
 
         //count corrects but wrong-placed pon
         for (int x = 0; x < 5; x++){
-            if (colors.get(x).equals("White")){
+            if (colors.get(x).equals("WHITE")){
                 String searched = answer.getCircles().get(x).getColor();
                 for (Circle circle : playerAnswer.getCircles()){
                     if (circle.getColor().equals(searched)) goodColorCount ++;
@@ -48,10 +48,10 @@ public class DifficultyPro implements Difficulty{
         //replace colors in order : Black-Grey-White without considering answer order
         for (int z = 0; z < 5; z++){
             if (correctCount > 0){
-                colors.set(z, "Black");
+                colors.set(z, "BLACK");
                 correctCount --;
             } else if (goodColorCount > 0){
-                colors.set(z, "Grey");
+                colors.set(z, "GREY");
                 goodColorCount --;
             }
         }
