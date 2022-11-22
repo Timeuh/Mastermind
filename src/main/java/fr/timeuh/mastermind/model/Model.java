@@ -13,21 +13,25 @@ import java.util.Random;
 public class Model implements Subject{
 
     private List<Observer> observers;
-    private List<Row> rows;
+    private List<Row> playerRows;
+    private List<Row> answerRows;
     private Row answer;
-    private int currentRow;
     private Difficulty difficulty;
     private Color background;
+    private int currentRow;
+    private int currentPon;
 
     /**
      * Constructs a new model
      */
     public Model() {
         this.observers = new ArrayList<>();
-        this.rows = new ArrayList<>();
-        this.currentRow = 0;
+        this.playerRows = new ArrayList<>();
+        this.answerRows = new ArrayList<>();
         this.difficulty = new DifficultyBeginner();
         this.background = Color.WHITE;
+        this.currentRow = 6;
+        this.currentPon = 0;
         fillRows();
     }
 
@@ -36,7 +40,7 @@ public class Model implements Subject{
      * @return a correction row
      */
     private Row checkAnswer(){
-        return difficulty.correctPlayerAnswer(answer, rows.get(currentRow));
+        return difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow));
     }
 
     /**
@@ -78,7 +82,7 @@ public class Model implements Subject{
      * Fill the row list with 7 new rows
      */
     private void fillRows(){
-        for (int i = 0; i < 7; i++) rows.add(new Row());
+        for (int i = 0; i < 7; i++) playerRows.add(new Row());
     }
 
     /**
@@ -112,5 +116,19 @@ public class Model implements Subject{
      */
     public Color getBackground() {
         return background;
+    }
+
+    /**
+     * @return the current row of player's pon
+     */
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    /**
+     * @return the current player's pon
+     */
+    public int getCurrentPon() {
+        return currentPon;
     }
 }

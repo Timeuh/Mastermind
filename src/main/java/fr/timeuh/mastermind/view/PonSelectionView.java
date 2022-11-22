@@ -1,5 +1,7 @@
 package fr.timeuh.mastermind.view;
 
+import fr.timeuh.mastermind.model.Model;
+import fr.timeuh.mastermind.model.Subject;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -8,7 +10,7 @@ import javafx.scene.shape.Circle;
 /**
  * Pon selection view for the player
  */
-public class PonSelectionView extends GridPane {
+public class PonSelectionView extends GridPane implements Observer{
     private final int GRID_SPACING = 10;
     private final int GRID_HGAP = 5;
     private final int CIRCLE_RADIUS = 20;
@@ -35,9 +37,26 @@ public class PonSelectionView extends GridPane {
                 Circle grey = new Circle(CIRCLE_RADIUS, Color.SILVER);
                 grey.setStroke(Color.BLACK);
                 add(grey, x, i);
-                setHgap(GRID_HGAP);
-                setVgap(GRID_SPACING);
-                setPadding(new Insets(GRID_SPACING));
+            }
+        }
+
+        setHgap(GRID_HGAP);
+        setVgap(GRID_SPACING);
+        setPadding(new Insets(GRID_SPACING));
+    }
+
+    @Override
+    public void update(Subject subject) {
+        if (subject instanceof Model model){
+            getChildren().clear();
+
+            for (int i = 1; i < 8; i++){
+                for (int x = 0; x < 5; x++){
+                    Circle grey = new Circle(CIRCLE_RADIUS, Color.SILVER);
+                    grey.setStroke(Color.BLACK);
+                    if ((i == model.getCurrentRow()) && (x == model.getCurrentPon())) grey.setStroke(Color.BLANCHEDALMOND);
+                    add(grey, x, i);
+                }
             }
         }
     }
