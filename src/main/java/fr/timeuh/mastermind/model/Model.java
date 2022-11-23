@@ -208,4 +208,20 @@ public class Model implements Subject{
     public Row getAnswer() {
         return answer;
     }
+
+    /**
+     * Change the current row
+     * @param currentRow the new current row
+     */
+    public void setCurrentRow(int currentRow) {
+        this.currentRow = currentRow;
+    }
+
+    /**
+     * Change the current pon
+     * @param currentPon the new current pon
+     */
+    public void setCurrentPon(int currentPon) {
+        this.currentPon = currentPon;
+    }
 }

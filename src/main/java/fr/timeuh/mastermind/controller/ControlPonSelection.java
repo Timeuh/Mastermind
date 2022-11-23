@@ -28,6 +28,11 @@ public class ControlPonSelection implements EventHandler<MouseEvent> {
         if (model.getPhase().equals("PLAYING")){
             int x = getModelX(event.getX());
             int y = getModelY(event.getY());
+
+            if (y == model.getCurrentRow()){
+                model.setCurrentPon(x);
+                model.notifyObservers();
+            }
         }
     }
 
@@ -51,13 +56,13 @@ public class ControlPonSelection implements EventHandler<MouseEvent> {
      * @return the y compatible with the model
      */
     private int getModelY(double currentY){
-        if (currentY > 60 && currentY < 100) return 0;
-        if (currentY > 110 && currentY < 150) return 1;
-        if (currentY > 160 && currentY < 200) return 2;
-        if (currentY > 210 && currentY < 250) return 3;
-        if (currentY > 260 && currentY < 300) return 4;
-        if (currentY > 310 && currentY < 350) return 5;
-        if (currentY > 360 && currentY < 400) return 6;
+        if (currentY > 60 && currentY < 100) return 1;
+        if (currentY > 110 && currentY < 150) return 2;
+        if (currentY > 160 && currentY < 200) return 3;
+        if (currentY > 210 && currentY < 250) return 4;
+        if (currentY > 260 && currentY < 300) return 5;
+        if (currentY > 310 && currentY < 350) return 6;
+        if (currentY > 360 && currentY < 400) return 7;
         return 8;
     }
 }
