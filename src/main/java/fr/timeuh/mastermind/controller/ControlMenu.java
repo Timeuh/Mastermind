@@ -38,7 +38,7 @@ public class ControlMenu implements EventHandler<ActionEvent> {
                 case "Validate" -> {
                     if (model.getPhase().equals("PLAYING")){
                         boolean presence = false;
-                        for (Circle modelCircle : model.getPlayerRows().get(model.getCurrentRow()).getCircles()){
+                        for (Circle modelCircle : model.getPlayerRows().get(model.getCurrentRow()-1).getCircles()){
                             if (modelCircle.getColor().equals("SILVER")) presence = true;
                         }
                         if (!presence) model.checkAnswer();
