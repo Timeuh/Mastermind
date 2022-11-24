@@ -24,7 +24,7 @@ public class ControlMenu implements EventHandler<ActionEvent> {
     }
 
     /**
-     *
+     * Manages the action event
      * @param event the event which occurred
      */
     @Override

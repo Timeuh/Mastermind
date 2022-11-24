@@ -20,7 +20,7 @@ public class ControlPonSelection implements EventHandler<MouseEvent> {
     }
 
     /**
-     * Manages the action event
+     * Manages the mouse event
      * @param event the event which occurred
      */
     @Override
