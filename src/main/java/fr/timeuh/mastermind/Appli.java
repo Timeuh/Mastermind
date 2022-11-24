@@ -1,5 +1,6 @@
 package fr.timeuh.mastermind;
 
+import fr.timeuh.mastermind.controller.ControlColorSelection;
 import fr.timeuh.mastermind.controller.ControlMenu;
 import fr.timeuh.mastermind.controller.ControlPonSelection;
 import fr.timeuh.mastermind.model.Model;
@@ -21,6 +22,7 @@ public class Appli extends Application {
 
         global.getMenu().addEventHandler(ActionEvent.ACTION, new ControlMenu(model));
         global.getPons().addEventHandler(MouseEvent.MOUSE_CLICKED, new ControlPonSelection(model));
+        global.getColorSelection().addEventHandler(MouseEvent.MOUSE_CLICKED, new ControlColorSelection(model));
 
         Scene scene = new Scene(global);
         stage.setTitle("Mastermind");
