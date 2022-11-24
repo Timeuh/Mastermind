@@ -4,8 +4,10 @@ import fr.timeuh.mastermind.model.Model;
 import fr.timeuh.mastermind.model.Row;
 import fr.timeuh.mastermind.model.Subject;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
@@ -101,12 +103,15 @@ public class PonSelectionView extends GridPane implements Observer{
             lig = 7;
             for (Row row : model.getAnswerRows()){
                 int col = 8;
+                HBox container = new HBox();
+                container.setAlignment(Pos.CENTER);
+                container.setSpacing(GRID_SPACING);
                 for (fr.timeuh.mastermind.model.Circle modelCircle : row.getCircles()){
                     javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle(MINI_CIRCLE_RADIUS, modelCircle.getColorFromString());
                     circle.setStroke(Color.BLACK);
-                    add(circle, col, lig);
-                    col ++;
+                    container.getChildren().add(circle);
                 }
+                add(container, col, lig);
                 lig --;
             }
 
