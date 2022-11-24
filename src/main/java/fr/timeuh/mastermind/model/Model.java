@@ -73,12 +73,12 @@ public class Model implements Subject{
      */
     private String getColor(int color){
         switch (color){
-            case 0 -> {return "Red";}
-            case 1 -> {return "Green";}
-            case 2 -> {return "Blue";}
-            case 3 -> {return "Yellow";}
-            case 4 -> {return "Brown";}
-            default -> {return "Grey";}
+            case 0 -> {return "CRIMSON";}
+            case 1 -> {return "GREEN";}
+            case 2 -> {return "NAVY";}
+            case 3 -> {return "GOLD";}
+            case 4 -> {return "SADDLEBROWN";}
+            default -> {return "GREY";}
         }
     }
 
