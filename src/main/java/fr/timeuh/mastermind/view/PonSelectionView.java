@@ -64,7 +64,9 @@ public class PonSelectionView extends GridPane implements Observer{
         if (subject instanceof Model model){
             getChildren().clear();
 
+            //display answer row
             if (model.getPhase().equals("OVER")){
+                //if the game is over, display the answer
                 int col = 0;
                 for (fr.timeuh.mastermind.model.Circle modelCircle : model.getAnswer().getCircles()){
                     Circle grey = new Circle(CIRCLE_RADIUS, modelCircle.getColorFromString());
@@ -73,6 +75,7 @@ public class PonSelectionView extends GridPane implements Observer{
                     col ++;
                 }
             } else {
+                //display hidden answer
                 for (int y = 0; y < 5; y++){
                     Circle black = new Circle(CIRCLE_RADIUS, Color.BLACK);
                     black.setStroke(Color.GREY);
@@ -80,18 +83,22 @@ public class PonSelectionView extends GridPane implements Observer{
                 }
             }
 
-
-            for (int i = 1; i < 8; i++){
-                for (int x = 0; x < 5; x++){
-                    Circle grey = new Circle(CIRCLE_RADIUS, Color.SILVER);
+            //display player pon rows
+            int lig = 1;
+            for (Row row : model.getPlayerRows()){
+                int col = 0;
+                for (fr.timeuh.mastermind.model.Circle modelCircle : row.getCircles()){
+                    Circle grey = new Circle(CIRCLE_RADIUS, modelCircle.getColorFromString());
                     grey.setStroke(Color.BLACK);
-                    if ((i == model.getCurrentRow()) && (x == model.getCurrentPon())) grey.setStroke(Color.CHARTREUSE);
-                    add(grey, x, i);
+                    if ((lig == model.getCurrentRow()) && (col == model.getCurrentPon())) grey.setStroke(Color.CHARTREUSE);
+                    add(grey, col, lig);
+                    col++;
                 }
+                lig ++;
             }
 
-            int lig = 7;
-
+            //display correction of player's answer row
+            lig = 7;
             for (Row row : model.getAnswerRows()){
                 int col = 8;
                 for (fr.timeuh.mastermind.model.Circle modelCircle : row.getCircles()){
