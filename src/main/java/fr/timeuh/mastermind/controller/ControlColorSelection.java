@@ -1,6 +1,8 @@
 package fr.timeuh.mastermind.controller;
 
+import fr.timeuh.mastermind.model.Circle;
 import fr.timeuh.mastermind.model.Model;
+import fr.timeuh.mastermind.model.Row;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -28,7 +30,7 @@ public class ControlColorSelection implements EventHandler<MouseEvent> {
         if (model.getPhase().equals("PLAYING")){
             if (event.getY() > 10 && event.getY() < 50){
                 String color = getColor(event.getX());
-                model.getAnswerRows().get(model.getCurrentRow()).getCircles().get(model.getCurrentPon()).setColor(color);
+                model.changePonColor(color);
                 model.notifyObservers();
             }
         }

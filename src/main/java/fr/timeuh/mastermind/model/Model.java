@@ -42,7 +42,7 @@ public class Model implements Subject{
      * Check player's current answer with the difficulty check and add the row to the correction
      */
     public void checkAnswer(){
-        answerRows.add(difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow)));
+        answerRows.add(difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow-1)));
         currentRow --;
         currentPon = 0;
     }
@@ -139,9 +139,23 @@ public class Model implements Subject{
         fillRows();
     }
 
+    /**
+     * Change current background color
+     */
     public void switchBackground(){
         if (background.equals(Color.WHITE)) background = Color.GREY;
         else if (background.equals(Color.GREY)) background = Color.WHITE;
+    }
+
+
+    /**
+     * Change current pon color
+     * @param color the new color
+     */
+    public void changePonColor(String color){
+        Row current = playerRows.get(currentRow-1);
+        Circle circle = current.getCircles().get(currentPon);
+        circle.setColor(color);
     }
 
     /**
