@@ -37,4 +37,12 @@ public class Circle {
     public String getColor() {
         return color;
     }
+
+    /**
+     * Change the circle's color
+     * @param color the new color
+     */
+    public void setColor(String color) {
+        this.color = color;
+    }
 }
