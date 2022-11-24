@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -42,9 +43,20 @@ public class Model implements Subject{
      * Check player's current answer with the difficulty check and add the row to the correction
      */
     public void checkAnswer(){
-        answerRows.add(difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow-1)));
+        Row verif = difficulty.correctPlayerAnswer(answer, playerRows.get(currentRow-1));
+        answerRows.add(verif);
         currentRow --;
         currentPon = 0;
+
+        boolean end = true;
+        for (Circle circle : verif.getCircles()){
+            if (!circle.getColor().equals("BLACK")) {
+                end = false;
+                break;
+            }
+        }
+        if (currentRow == 0) end = true;
+        if (end) phase = "OVER";
     }
 
     /**
