@@ -165,9 +165,11 @@ public class Model implements Subject{
      * @param color the new color
      */
     public void changePonColor(String color){
-        Row current = playerRows.get(currentRow-1);
-        Circle circle = current.getCircles().get(currentPon);
-        circle.setColor(color);
+        if (currentPon != 8) {
+            Row current = playerRows.get(currentRow - 1);
+            Circle circle = current.getCircles().get(currentPon);
+            circle.setColor(color);
+        }
     }
 
     /**
