@@ -1,6 +1,10 @@
 # Mastermind
 You know the Mastermind board game ? This is the video game version
 
+# Requirement
+
+/!\ In order to run the game, you need to have at least Java 17 /!\
+
 # Game interface
 When you start the game, here is what you will see :
 
