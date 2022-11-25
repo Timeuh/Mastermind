@@ -33,8 +33,12 @@ public class ControlMenu implements EventHandler<ActionEvent> {
             switch (button.getText()){
                 case "Start" -> model.setPhase("PLAYING");
                 case "Reset" -> model.reset();
-                case "Beginner" -> model.setDifficulty(new DifficultyBeginner());
-                case "Pro" -> model.setDifficulty(new DifficultyPro());
+                case "Beginner" -> {
+                    if (model.getPhase().equals("WAITING")) model.setDifficulty(new DifficultyBeginner());
+                }
+                case "Pro" -> {
+                    if (model.getPhase().equals("WAITING")) model.setDifficulty(new DifficultyPro());
+                }
                 case "Validate" -> {
                     if (model.getPhase().equals("PLAYING")){
                         boolean presence = false;
