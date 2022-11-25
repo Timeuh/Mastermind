@@ -23,6 +23,7 @@ public class DifficultyPro implements Difficulty{
     @Override
     public Row correctPlayerAnswer(Row answer, Row playerAnswer) {
         List<String> colors = new ArrayList<>();
+        List<Integer> goodAnswers = new ArrayList<>();
         int correctCount = 0;
         int goodColorCount = 0;
         //initialize full white
@@ -32,15 +33,26 @@ public class DifficultyPro implements Difficulty{
         for (int i = 0; i < 5; i++){
             String answerCurrent = answer.getCircles().get(i).getColor();
             String playerCurrent = playerAnswer.getCircles().get(i).getColor();
-            if (answerCurrent.equals(playerCurrent)) correctCount ++;
+            if (answerCurrent.equals(playerCurrent)) {
+                correctCount ++;
+                goodAnswers.add(i);
+                colors.set(i, "BLACK");
+            }
         }
 
         //count corrects but wrong-placed pon
         for (int x = 0; x < 5; x++){
             if (colors.get(x).equals("WHITE")){
-                String searched = answer.getCircles().get(x).getColor();
-                for (Circle circle : playerAnswer.getCircles()){
-                    if (circle.getColor().equals(searched)) goodColorCount ++;
+                String playerColor = playerAnswer.getCircles().get(x).getColor();
+                for (int z = 0; z < 5; z++){
+                    if (!goodAnswers.contains(z)){
+                        String answerColor = answer.getCircles().get(z).getColor();
+                        if (answerColor.equals(playerColor)){
+                            goodColorCount++;
+                            goodAnswers.add(z);
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -53,6 +65,8 @@ public class DifficultyPro implements Difficulty{
             } else if (goodColorCount > 0){
                 colors.set(z, "GREY");
                 goodColorCount --;
+            } else {
+                colors.set(z, "WHITE");
             }
         }
 
